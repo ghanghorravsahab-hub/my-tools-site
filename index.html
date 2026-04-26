@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tools to boost your productivity - text tools, image tools, and more.">
+    <meta name="keywords" content="online tools, free tools, productivity, text tools">
+    <meta name="author" content="Your Name">
+    <title>ToolHub - Free Online Tools</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-tools"></i>
+                <span>ToolHub</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Tools</a>
+                <a href="blog.html">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Free Online Tools</h1>
+            <p>Professional tools to simplify your daily tasks — no signup, completely free</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tools-grid">
+            <!-- Tool 1: Text Counter -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-file-alt"></i></div>
+                <h3>Text Counter</h3>
+                <p>Count words, characters, sentences, and paragraphs instantly</p>
+                <button class="tool-btn" onclick="openTool('text-counter')">Use Tool →</button>
+            </div>
+
+            <!-- Tool 2: Case Converter -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-arrow-up-wide-short"></i></div>
+                <h3>Case Converter</h3>
+                <p>Convert text to uppercase, lowercase, title case, and more</p>
+                <button class="tool-btn" onclick="openTool('case-converter')">Use Tool →</button>
+            </div>
+
+            <!-- Tool 3: Password Generator -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-key"></i></div>
+                <h3>Password Generator</h3>
+                <p>Generate strong, secure passwords with custom options</p>
+                <button class="tool-btn" onclick="openTool('password-generator')">Use Tool →</button>
+            </div>
+
+            <!-- Tool 4: QR Code Generator -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-qrcode"></i></div>
+                <h3>QR Code Generator</h3>
+                <p>Create QR codes for URLs, text, or contact info</p>
+                <button class="tool-btn" onclick="openTool('qr-generator')">Use Tool →</button>
+            </div>
+
+            <!-- Tool 5: Color Picker -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-eye-dropper"></i></div>
+                <h3>Color Picker</h3>
+                <p>Pick colors and get HEX, RGB, and HSL values</p>
+                <button class="tool-btn" onclick="openTool('color-picker')">Use Tool →</button>
+            </div>
+
+            <!-- Tool 6: Base64 Encoder -->
+            <div class="tool-card">
+                <div class="tool-icon"><i class="fas fa-code"></i></div>
+                <h3>Base64 Encoder</h3>
+                <p>Encode and decode text to Base64 format</p>
+                <button class="tool-btn" onclick="openTool('base64')">Use Tool →</button>
+            </div>
+        </div>
+
+        <!-- Text Counter Tool Modal (Built-in) -->
+        <div id="text-counter-tool" class="tool-modal" style="display:none">
+            <div class="modal-content">
+                <span class="close-tool" onclick="closeTool('text-counter')">&times;</span>
+                <h2>Text Counter</h2>
+                <textarea id="textInput" rows="6" placeholder="Type or paste your text here..."></textarea>
+                <div class="stats">
+                    <div class="stat"><strong>Characters:</strong> <span id="charCount">0</span></div>
+                    <div class="stat"><strong>Words:</strong> <span id="wordCount">0</span></div>
+                    <div class="stat"><strong>Sentences:</strong> <span id="sentenceCount">0</span></div>
+                    <div class="stat"><strong>Paragraphs:</strong> <span id="paragraphCount">0</span></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ToolHub. All tools are free to use.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Text counter functionality
+        const textarea = document.getElementById('textInput');
+        if(textarea) {
+            textarea.addEventListener('input', function() {
+                const text = this.value;
+                document.getElementById('charCount').innerText = text.length;
+                document.getElementById('wordCount').innerText = text.trim() ? text.trim().split(/\s+/).length : 0;
+                document.getElementById('sentenceCount').innerText = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+                document.getElementById('paragraphCount').innerText = text.split(/\n\s*\n/).filter(p => p.trim().length > 0).length;
+            });
+        }
+    </script>
+</body>
+</html>
